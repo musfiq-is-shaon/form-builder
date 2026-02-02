@@ -18,10 +18,10 @@ A modern, feature-rich form builder built with React and Tailwind CSS. Create be
 ### Field Types
 | Field Type | Description |
 |------------|-------------|
-| 📝 Text | Single-line text input |
-| 📧 Email | Email address with format validation |
-| 📋 Dropdown | Select from predefined options |
-| ☑️ Checkbox | Boolean selection |
+|  Text | Single-line text input |
+|  Email | Email address with format validation |
+|  Dropdown | Select from predefined options |
+|  Checkbox | Boolean selection |
 
 ### Key Capabilities
 - **Tab-based Editor** - Organize field settings (Basic, Validation, Options)
@@ -55,7 +55,7 @@ npm run build
 
 The app will be available at `http://localhost:3000`
 
-## 🚀 Deploying to Vercel
+##  Deploying to Vercel
 
 ### Option 1: Deploy via Vercel Dashboard (Recommended)
 
