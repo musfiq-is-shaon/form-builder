@@ -313,7 +313,7 @@ function App() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {view === 'builder' ? (
-          <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-8 animate-fade-in">
             {/* Field Picker Sidebar */}
             <div className="lg:w-80 flex-shrink-0">
               <div className="card p-5 sticky top-24">
@@ -543,7 +543,7 @@ function App() {
             darkMode={darkMode}
           />
         ) : (
-          <div className="card overflow-hidden">
+          <div className="card overflow-hidden animate-fade-in">
             <div className="p-5 border-b border-lime-200 dark:border-dark-400 bg-gradient-to-r from-lime-50 to-transparent dark:from-dark-400 dark:to-transparent">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
@@ -563,7 +563,7 @@ function App() {
               </div>
             </div>
             <div className="p-4">
-              <pre className="bg-dark-600 text-secondary-100 p-4 rounded-xl overflow-auto max-h-[600px] text-sm font-mono">
+              <pre className="bg-secondary-800 dark:bg-dark-600 text-secondary-100 dark:text-secondary-100 p-4 rounded-xl overflow-auto max-h-[600px] text-sm font-mono transition-colors duration-300">
                 {exportJSON()}
               </pre>
             </div>

@@ -1,5 +1,7 @@
 # Form Builder
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
 A modern, feature-rich form builder built with React and Tailwind CSS. Create beautiful, customizable forms with drag-and-drop functionality, live preview, validation, and JSON export.
 
 ![Form Builder Preview](https://via.placeholder.com/800x400?text=Form+Builder+Preview)
@@ -52,6 +54,62 @@ npm run build
 ```
 
 The app will be available at `http://localhost:3000`
+
+## 🚀 Deploying to Vercel
+
+### Option 1: Deploy via Vercel Dashboard (Recommended)
+
+1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
+
+2. Go to [Vercel Dashboard](https://vercel.com/dashboard) and click "Add New..." → "Project"
+
+3. Import your Git repository
+
+4. Vercel will automatically detect the configuration:
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `build`
+   - **Install Command:** `npm install`
+
+5. Click "Deploy" and wait for the build to complete
+
+6. Your app will be live at `https://your-project-name.vercel.app`
+
+### Option 2: Deploy via Vercel CLI
+
+```bash
+# Install Vercel CLI globally
+npm install -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy the project
+vercel
+
+# For production deployment
+vercel --prod
+```
+
+### Custom Domain (Optional)
+
+To add a custom domain:
+1. Go to your project settings in Vercel Dashboard
+2. Navigate to "Domains"
+3. Add your domain and follow the DNS configuration instructions
+
+### Environment Variables
+
+If your app uses environment variables:
+1. Go to Project Settings → Environment Variables
+2. Add your variables (e.g., `REACT_APP_API_URL`)
+3. Redeploy to apply changes
+
+## 🔧 Vercel Configuration
+
+This project includes a `vercel.json` configuration file optimized for:
+- **SPA routing** - All routes redirect to `index.html`
+- **Static asset caching** - CSS/JS files cached for 1 year
+- **Build optimization** - Properly configured build command
 
 ### Building for Production
 
@@ -197,6 +255,28 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ##  Support
 
 If you have any questions or need help, please open an issue on GitHub.
+
+---
+
+## Animation Consistency Project
+
+### Standard Animation Durations:
+- **Micro-interactions** (buttons, toggles): `duration-200` (200ms)
+- **Standard transitions** (hover, focus): `duration-200` (200ms)
+- **Theme/color changes**: `duration-300` (300ms)
+- **Complex animations** (modals, slide-downs): `duration-300` with consistent keyframes
+
+### Changes Made:
+1. **tailwind.config.js**: Added `fade-in` (0.2s) and `slide-in` animations with consistent keyframes
+2. **src/index.css**: Standardized all transitions to `duration-200` for interactive elements
+3. **src/App.js**: Consistent transitions on view switcher buttons + fade animations between views
+4. **src/components/FieldEditor.js**: Consistent transitions on tabs and interactive elements
+5. **src/components/FieldPreview.js**: Added `duration-200` to drag handle hover transitions
+6. **src/components/FormPreview.js**: Verified consistent field transition durations
+
+### View Transitions:
+- Builder/Preview/JSON views now use `animate-fade-in` for smooth transitions
+- JSON code block uses proper dark mode classes (`bg-secondary-800` light / `bg-dark-600` dark)
 
 ---
 

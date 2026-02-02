@@ -38,7 +38,7 @@ const FieldPreview = ({ field, index, isSelected, onRemove, onDuplicate, darkMod
             {/* Drag Handle */}
             <div
               {...provided.dragHandleProps}
-              className="flex-shrink-0 cursor-grab active:cursor-grabbing mt-1 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="flex-shrink-0 cursor-grab active:cursor-grabbing mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
             >
               <div className="w-9 h-9 rounded-xl bg-lime-100 dark:bg-dark-400 flex items-center justify-center">
                 <GripVertical className="w-5 h-5 text-lime-600 dark:text-lime-400" />
