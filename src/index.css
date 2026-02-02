@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-lime-800/20 dark:border-lime-500/20;
+  }
+  
+  body {
+    @apply bg-lime-50 text-secondary-800 antialiased transition-colors duration-300;
+    font-family: 'Roboto Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .dark body {
+    @apply bg-dark-200 text-secondary-100;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-lime-500 text-white hover:bg-lime-600 focus:ring-lime-500 shadow-lg shadow-lime-500/25 hover:shadow-xl hover:shadow-lime-500/30 active:scale-[0.98] font-semibold;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-white text-secondary-700 border border-lime-200 hover:bg-lime-50 hover:border-lime-300 focus:ring-lime-500 dark:bg-dark-300 dark:text-secondary-100 dark:border-dark-400 dark:hover:bg-dark-400;
+  }
+  
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 shadow-lg shadow-red-500/25;
+  }
+  
+  .btn-ghost {
+    @apply btn bg-transparent text-secondary-600 hover:bg-lime-100 hover:text-lime-700 focus:ring-lime-500 dark:text-secondary-300 dark:hover:bg-dark-400;
+  }
+  
+  .btn-icon {
+    @apply p-2.5 rounded-xl transition-all duration-200 hover:bg-lime-100 focus:outline-none focus:ring-2 focus:ring-lime-500 dark:hover:bg-dark-400;
+  }
+  
+  .input {
+    @apply w-full px-4 py-3 text-sm border border-lime-200 rounded-xl bg-white placeholder-secondary-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent dark:bg-dark-300 dark:border-dark-400 dark:text-white dark:placeholder-secondary-500;
+  }
+  
+  .input-error {
+    @apply border-red-500 focus:ring-red-500 dark:border-red-500;
+  }
+  
+  .label {
+    @apply block text-sm font-bold text-secondary-700 mb-2 dark:text-secondary-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-lime-100 transition-all duration-300 dark:bg-dark-200 dark:border-dark-400;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-lg hover:shadow-lime-500/10 hover:-translate-y-0.5 transition-all duration-300;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-primary {
+    @apply badge bg-lime-100 text-lime-700 dark:bg-lime-900/40 dark:text-lime-300;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300;
+  }
+  
+  .badge-danger {
+    @apply badge bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-secondary-100 text-secondary-600 dark:bg-dark-400 dark:text-secondary-300;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-lime-300 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-lime-400;
+  }
+}
+
+/* Drag and drop styles */
+.dragging {
+  opacity: 0.5;
+  transform: scale(1.02);
+}
+
+.drag-over {
+  border: 2px dashed #84cc16 !important;
+  background-color: #f7fee7 !important;
+}
+
+/* Dark mode drag over */
+.dark .drag-over {
+  background-color: rgba(132, 204, 22, 0.1) !important;
+}
+
+/* Animation classes */
+.field-enter {
+  animation: fieldSlideIn 0.3s ease-out forwards;
+}
+
+@keyframes fieldSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom checkbox styles */
+.custom-checkbox {
+  @apply relative w-5 h-5 appearance-none border-2 border-lime-300 rounded-lg bg-white checked:bg-lime-500 checked:border-lime-500 cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:bg-dark-400 dark:border-dark-400;
+}
+
+.custom-checkbox:checked::after {
+  content: '';
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+}
+
+/* Select styles */
+.custom-select {
+  @apply w-full px-4 py-3 text-sm border border-lime-200 rounded-xl appearance-none cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:border-transparent dark:bg-dark-400 dark:border-dark-400 dark:text-white;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-lime-600 to-lime-700 bg-clip-text text-transparent;
+}
+
+.dark .gradient-text {
+  @apply from-lime-400 to-lime-500;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/80 backdrop-blur-lg dark:bg-dark-400/80;
+}
+
+/* Field hover effect */
+.field-item {
+  @apply relative overflow-hidden;
+}
+
+.field-item::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-lime-500/0 via-lime-500/5 to-lime-500/0 opacity-0 transition-opacity duration-300;
+}
+
+.field-item:hover::before {
+  @apply opacity-100;
+}
+
+/* Pulse ring effect */
+.pulse-ring {
+  @apply relative;
+}
+
+.pulse-ring::after {
+  content: '';
+  @apply absolute inset-0 rounded-lg border-2 border-lime-500 opacity-0 animate-pulse;
+}
+
+/* Skeleton loading */
+.skeleton {
+  @apply bg-gradient-to-r from-lime-200 via-lime-100 to-lime-200 bg-[length:200%_100%] animate-shimmer;
+}
+
+.dark .skeleton {
+  @apply from-dark-300 via-dark-200 to-dark-300;
+}
+
+/* Toast notification */
+.toast {
+  @apply fixed bottom-4 right-4 px-4 py-3 rounded-xl shadow-lg transform transition-all duration-300 animate-slide-up;
+}
+
+.toast-success {
+  @apply bg-lime-500 text-white;
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
+}
+
+/* Focus ring enhancement */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2 dark:focus:ring-offset-dark-500;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-lime-200 text-lime-900;
+}
+
+.dark ::selection {
+  @apply bg-lime-800 text-lime-100;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, select, textarea {
+  @apply transition-all duration-200;
+}
+
+/* Enhanced card hover */
+.enhanced-card {
+  @apply card-hover transform hover:-translate-y-0.5 hover:shadow-lg;
+}
+
+/* Nav item styles */
+.nav-item {
+  @apply flex items-center space-x-3 px-4 py-3 rounded-xl text-secondary-600 hover:bg-lime-50 hover:text-lime-700 transition-all duration-200 dark:text-secondary-400 dark:hover:bg-dark-400 dark:hover:text-lime-400;
+}
+
+.nav-item-active {
+  @apply bg-lime-100 text-lime-700 dark:bg-lime-900/40 dark:text-lime-400 font-medium;
+}
+
+/* Lime glow effects */
+.shadow-lime-glow {
+  box-shadow: 0 0 20px rgba(132, 204, 22, 0.3), 0 0 40px rgba(132, 204, 22, 0.1);
+}
+
+/* Border lime */
+.border-lime {
+  @apply border-lime-500;
+}
+
+/* Text lime */
+.text-lime {
+  @apply text-lime-600;
+}
+
+/* Ring lime */
+.ring-lime {
+  @apply ring-2 ring-lime-500;
+}
+
+/* Dark mode specific */
+.dark .dark\:bg-dark-100 {
+  background-color: #142707;
+}
+
+.dark .dark\:bg-dark-200 {
+  background-color: #1a2e06;
+}
+
+.dark .dark\:bg-dark-300 {
+  background-color: #1f3608;
+}
+
+.dark .dark\:bg-dark-400 {
+  background-color: #243e09;
+}
+
